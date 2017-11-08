@@ -15,7 +15,7 @@ The quickest way to get started with dollaSign is to download this library into 
         <head>
           <meta charset="utf-8">
           <link rel="stylesheet" href="./css/reset.css">
-          <script type="text/javascript" src="../dist/dolla_sign.js"></script>
+          <script type="text/javascript" src="./dolla_sign.js"></script>
           ...
         </head>
 
@@ -58,23 +58,24 @@ It can be used four ways:
 
 4. As a tool to queue functions to run once the DOM is fully loaded.
 
-// Wrapped in $l, this function will only run once the DOM is fully loaded
 $l(() => {
 
-  // The element variable is a DOMNodeCollection object, an array-like
-  //structure, with all the div elements, so DOMNodeCollection such as `each`
-  //may be used
   const elements = $l("div");
+  // The element variable is a DOMNodeCollection object, an array-like
+  //structure, so a DOMNodeCollection method such as `each`
+  //may be used
 
   elements.each((element) => {
 
-    // This use of $l takes the string of HTML code, creates a HTMLElement,
+    // Use Number 3: This use of $l takes the string of HTML code, creates a HTMLElement,
     // and wraps the HTMLElement in a DOMNodeCollection object
+
     const paragraph = $l("<p></p>");
 
     // Because the elements contained by the DOMNodeCollection are still
     // HTMLElements, they must be wrapped in an DOMNodeCollection before using
     // DOMNodeCollection methods such as `append`
+
     const $lelement = $l(element);
     $lelement.append(paragraph);
 
@@ -90,8 +91,8 @@ DOMNodeCollection methods to navigate DOM elements
 
 Iterates through the elements in a DOMNodeCollection and applies a callback function passed as an argument
 
-    const elements = $l("div");
-    elements.each(callbackFunction);
+    const elements = $l("ul");
+    elements.each(callback);
     children
 
 Returns a DOMNodeCollection object containing all of the children elements of every HTMLElement in the original DOMNodeCollection.
@@ -151,20 +152,19 @@ Sends HTTP Request and returns a Promise object. Accepts a Hash object as an arg
 * contentType (default: 'application/x-www-form-urlencoded; charset=UTF-8'): content type of HTTP Request
 
         $l.ajax({
-          url: "/widgets.json",
           method: "POST",
+          url: "/payroll.json",
           data: {
-            widget: {
-              name: "The Best Widget",
-              maker: "The Widget King"
+            manager: {
+              name: "Blastoise",
+              employees: []
             }
           },
-          success(widgetData) {
-            console.log("Widget created!");
-            // `create` action should `render json: @widget`
-            // this gives the client access to the `id` attribute issued by
-            // the server.
-            console.log("issued id: " + widgetData.id);
+          success: function (response) {
+            console.log("Test was a success!");
+          }
+          failure: function (response) {
+            // return failure response
           }
         });
 
