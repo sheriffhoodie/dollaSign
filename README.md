@@ -42,42 +42,42 @@ Alternatively, user can use the documents in the src folder by running webpack i
 * Event Listeners:
   * on
   * off
-* $l.ajax
+* $d.ajax
 
-**$l**
+**$d**
 
-The dollaSign library utilizes the global variable of $l as a wrapper for all of the methods in the dollaSign library.
+The dollaSign library utilizes the global variable of $d as a wrapper for all of the methods in the dollaSign library.
 
 It can be used four ways:
 
-1. $l is most commonly used to select elements with CSS selectors; $l("ul") returns a DOMNodeCollection object, an array of HTMLElements.
+1. $d is most commonly used to select elements with CSS selectors; $d("ul") returns a DOMNodeCollection object, an array of HTMLElements.
 
 2. Can also be used to create DOMNodeCollection objects from unwrapped HTMLElements, giving these elements access to dollaSign methods.
 
-3. $l takes in a string of HTML code, builds HTMLElement(s) from the code, and then wraps the HTMLElement(s) in a DOMNodeCollection object.
+3. $d takes in a string of HTML code, builds HTMLElement(s) from the code, and then wraps the HTMLElement(s) in a DOMNodeCollection object.
 
 4. As a tool to queue functions to run once the DOM is fully loaded.
 
-$l(() => {
+$d(() => {
 
-  const elements = $l("div");
+  const elements = $d("div");
   // The element variable is a DOMNodeCollection object, an array-like
   //structure, so a DOMNodeCollection method such as `each`
   //may be used
 
   elements.each((element) => {
 
-    // Use Number 3: This use of $l takes the string of HTML code, creates a HTMLElement,
+    // Use Number 3: This use of $d takes the string of HTML code, creates a HTMLElement,
     // and wraps the HTMLElement in a DOMNodeCollection object
 
-    const paragraph = $l("<p></p>");
+    const paragraph = $d("<p></p>");
 
     // Because the elements contained by the DOMNodeCollection are still
     // HTMLElements, they must be wrapped in an DOMNodeCollection before using
     // DOMNodeCollection methods such as `append`
 
-    const $lelement = $l(element);
-    $lelement.append(paragraph);
+    const $delement = $d(element);
+    $delement.append(paragraph);
 
   });
 
@@ -91,7 +91,7 @@ DOMNodeCollection methods to navigate DOM elements
 
 Iterates through the elements in a DOMNodeCollection and applies a callback function passed as an argument
 
-    const elements = $l("ul");
+    const elements = $d("ul");
     elements.each(callback);
     children
 
@@ -141,7 +141,7 @@ Removes a class, given as an argument, from each DOMNodeCollection element.
 * **off**
   * Removes event listener from each DOMNodeCollection element.
 
-**$l.ajax**
+**$d.ajax**
 
 Sends HTTP Request and returns a Promise object. Accepts a Hash object as an argument with any of the following attributes:
 
@@ -151,7 +151,7 @@ Sends HTTP Request and returns a Promise object. Accepts a Hash object as an arg
 * error: error callback
 * contentType (default: 'application/x-www-form-urlencoded; charset=UTF-8'): content type of HTTP Request
 
-        $l.ajax({
+        $d.ajax({
           method: "POST",
           url: "/payroll.json",
           data: {
