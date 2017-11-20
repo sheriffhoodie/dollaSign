@@ -97,33 +97,41 @@ Iterates through the elements in a DOMNodeCollection and applies a callback func
 
 Returns a DOMNodeCollection object containing all of the children elements of every HTMLElement in the original DOMNodeCollection.
 
-**parent**
+**returnChildren**
+
+Returns a DOMNodeCollection object containing the child elements of every HTMLElement in the original DOMNodeCollection
+
+**returnParents**
 
 Returns a DOMNodeCollection object containing the parent elements of every HTMLElement in the original DOMNodeCollection.
+
+**find**
+
+Returns a DOMNodeCollection of all nodes that match the provided selector
 
 ### DOM Manipulation
 
 DOMNodeCollection methods to view and/or change DOM elements
 
-**html**
+**addInnerHtml**
 
 Returns the innerHTML for the first element in the DOMNodeCollection if no argument is given. If a string argument is given, changes the innerHTML of each DOMNodeCollection element to the string argument.
 
-**empty**
+**emptyElement**
 
 Empties the innerHTML of each DOMNodeCollection element
 
-**append**
+**appendOffspring**
 
 Takes a single HTMLElement, DOMNodeCollection, or string argument and appends it to each DOMNodeCollection element.
 
-**remove**
+**removeOffspring**
 
 Remove each DOMNodeCollection element from the DOM.
 
-**attr**
+**setAttr**
 
-Takes either one (attr(attribute)) or two (attr(attribute, value)) arguments. If given one argument, the method gets the value of the attribute given for the the first element in the DOMNodeCollection. The method sets the attribute, given as the first argument, as the value, given as the second argument, for each DOMNodeCollection element.
+Takes either one (setAttr(attribute)) or two (setAttr(attribute, value)) arguments. If given one argument, the method gets the value of the attribute given for the the first element in the DOMNodeCollection. The method sets the attribute, given as the first argument, as the value, given as the second argument, for each DOMNodeCollection element.
 
 **addClass**
 
@@ -135,10 +143,10 @@ Removes a class, given as an argument, from each DOMNodeCollection element.
 
 **Event Listeners**
 
-* **on**
+* **addEvent**
   * Adds event listener to each DOMNodeCollection element. List of events are available here.
 
-* **off**
+* **removeEvent**
   * Removes event listener from each DOMNodeCollection element.
 
 **$d.ajax**
