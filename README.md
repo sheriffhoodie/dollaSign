@@ -8,7 +8,8 @@ dollaSign is a JavaScript DOM interaction library inspired by jQuery. Using doll
 * Create DOMNodeCollection objects from HTMLElements
 * Queue functions until DOM is fully loaded
 * Simplify HTTP requests
-* Getting Started
+
+## Getting Started
 
 The quickest way to get started with dollaSign is to download this library into your project and include the webpack output dolla_sign.js in your source code.
 
@@ -25,9 +26,9 @@ Alternatively, user can use the documents in the src folder by running webpack i
 
 ### DOM Traversal
 
-**each**
-**children**
-**parent**
+* **each**
+* **children**
+* **parent**
 
 **DOM Manipulation**
 
